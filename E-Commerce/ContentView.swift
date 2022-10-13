@@ -15,8 +15,17 @@ struct ContentView: View {
 //        animation: .default)
 //    private var items: FetchedResults<Item>
 
+    @AppStorage("log_Status") var log_Status: Bool = false
     var body: some View {
-        OnBoardingPage()
+        // Check Login Here
+        Group {
+            if log_Status {
+                MainPage()
+            } else {
+                OnBoardingPage()
+            }
+        }
+        
 //        NavigationView {
 //            List {
 //                ForEach(items) { item in
